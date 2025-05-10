@@ -9,14 +9,14 @@ function Header() {
   return (
     <>
       <header className="border-b border-[#d5ddd7] bg-white/80 backdrop-blur-sm sticky top-0 z-10">
-        <div className="container mx-auto flex h-16 justify-between items-center px-4">
-          <div className="flex items-center gap-2">
+        <div className="container mx-auto flex h-16 justify-between items-center">
+          <div className="flex items-center gap-2 pl-4">
             <div className="flex items-center justify-center bg-[#29543A] w-9 h-9 rounded-md">
               <FaBuildingWheat className="w-8 h-8 m-auto text-[#F9F9F5]" />
             </div>
-            <p className="text-2xl font-bold text-[#29543A]">
+            <h1 className="text-2xl font-bold text-[#29543A]">
               <span className="text-[#7D5A3C]">Agro</span>Mercado
-            </p>
+            </h1>
           </div>
 
           <button
