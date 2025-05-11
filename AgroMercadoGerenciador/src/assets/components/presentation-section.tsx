@@ -17,7 +17,7 @@ function PresentationSection() {
               </h1>
               <p className="text-gray-600 text-lg mb-8 max-w-md mx-auto lg:mx-0">
                 Uma plataforma abrangente para registrar e gerenciar produtos de
-                commodities agrícolas. Monitore o estoque e
+                commodities agrícolas. Monitore sua mercadoria e
                 otimize o seu negócio agrícola.
               </p>
               <div className="flex flex-col gap-4 items-center lg:flex-row lg:items-start lg:gap-4 lg:justify-start">
