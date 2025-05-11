@@ -5,10 +5,23 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-import products from "./../../data/products.json";
+import {type Product} from "../types/products";
+import { getProducts } from "../../services/productsService";
+import { useEffect,  useState } from "react";
+
 
 
 export default function BasicTable() {
+
+  const [products, setProducts] = useState<Product[]>([]);
+  
+  useEffect(() => {
+    getProducts().then((response: Product[]) => {
+      setProducts(response);
+      console.log(products);
+    });
+  }, [])
+
   return (
     <TableContainer component={Paper} className="p-8">
       <Table sx={{ minWidth: 650 }} aria-label="simple table">

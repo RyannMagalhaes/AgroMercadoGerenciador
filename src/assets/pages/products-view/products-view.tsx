@@ -2,9 +2,13 @@ import { HiPlus } from "react-icons/hi";
 import BasicTable from "../../components/table-component";
 import { Link } from "react-router-dom";
 
-const users = [];
+
+
 
 function ProductsView() {
+
+
+
   return (
     <>
       <section className="bg-[#f8f6ed] h-screen"> 
