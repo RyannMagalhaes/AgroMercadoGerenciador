@@ -6,9 +6,6 @@ import { Link } from "react-router-dom";
 
 
 function ProductsView() {
-
-
-
   return (
     <>
       <section className="bg-[#f8f6ed] h-screen"> 

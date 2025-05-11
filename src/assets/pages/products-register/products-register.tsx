@@ -1,4 +1,36 @@
+import { useRef } from "react";
+import productsService from "../../../services/productsService";
+import type { ProductRegister } from "../../types/products";
+
 function ProductsRegister() {
+  const inputName = useRef<HTMLInputElement | null>(null);
+  const inputPrice = useRef<HTMLInputElement | null>(null);
+
+  function formGetValue() {
+    const product: ProductRegister = {
+      name: "",
+      price: 0,
+    };
+
+    product.name = inputName.current?.value || "";
+    product.price = Number(inputPrice.current?.value) || 0;
+
+    if (product.name.length > 2 && product.price > 0) {
+      productsService.postProduct(product);
+    } else {
+      alert("Preencha os campos corretamente!");
+    }
+  }
+
+  function clearForm(){
+    if (inputName.current) {
+      inputName.current.value = "";
+    }
+    if (inputPrice.current) {
+      inputPrice.current.value = "";
+    }
+  }
+
   return (
     <>
       <section className="bg-[#f8f6ed] min-h-screen w-full flex items-center justify-center">
@@ -25,6 +57,7 @@ function ProductsRegister() {
                 placeholder="nome do produto (min: 3 caracteres)"
                 className="w-full px-4 py-2 border border-[#29543A] rounded"
                 maxLength={20}
+                ref={inputName}
               />
             </div>
             <div className="mb-6">
@@ -40,20 +73,24 @@ function ProductsRegister() {
                 placeholder="R$ 0.00"
                 className="w-full px-4 py-2 border border-[#29543A] rounded"
                 name="price"
+                ref={inputPrice}
+                step="0.01"
               />
             </div>
             <div className="flex flex-col sm:flex-row justify-between items-center border-t border-[#29543A]  pt-4 -mx-8 px-8">
               <button
                 type="button"
                 className="px-5 py-2 w-full sm:w-auto border border-[#29543A] rounded text-gray-700 hover:bg-gray-100 transition"
-                title="Cancelar"
+                title="Limpar"
+                onClick={clearForm}
               >
-                Cancelar
+                Limpar
               </button>
               <button
-                type="submit"
+                type="button"
                 className="px-6 my-3 sm:my-0 w-full sm:w-auto py-2 bg-[#29543A] text-white rounded font-semibold hover:bg-green-800 transition"
                 title="Cadastrar produto"
+                onClick={formGetValue}
               >
                 Cadastrar
               </button>
