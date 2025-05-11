@@ -3,7 +3,9 @@
 function ProductsRegister() {
   return (
     <>
-      <h1> Página de registro</h1>
+      <section className="bg-[#f8f6ed] h-screen">
+        
+      </section>
     </>
   )
 }
