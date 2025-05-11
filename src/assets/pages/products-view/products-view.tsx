@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 function ProductsView() {
   return (
     <>
-      <section className="bg-[#f8f6ed] h-screen">
+      <section className="bg-[#f8f6ed] h-screen"> 
         <div className="info flex flex-col md:flex-row md:items-center md:justify-between max-w-[70vw] mx-auto pt-8 pb-4">
           <div>
             <h1 className="text-3xl font-bold text-[#29543A] mb-2 mt-4">

@@ -15,6 +15,5 @@ createRoot(document.getElementById("root")!).render(
       <Route path="/products" element={<ProductsView />} />
       <Route path="/products/register" element={<ProductsRegister />} />
     </Routes>
-    <Footer/>
   </BrowserRouter>
 );

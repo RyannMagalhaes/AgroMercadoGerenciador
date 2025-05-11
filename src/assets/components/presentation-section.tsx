@@ -39,7 +39,7 @@ function PresentationSection() {
 
           {/* Conteúdo da direita */}
           <div className="flex-1 flex items-center justify-center rounded-lg shadow-md p-6 border-[#d4cdb0] border-1">
-            <div className="bg-[#d4cdb0] p-6 rounded-xl shadow-lg">
+            <div className="bg-[#7D5A3C] p-6 rounded-xl shadow-lg">
               <div className="bg-white p-6 rounded-lg shadow-md text-center ">
                 <div className="mb-4">
                   <div className="w-14 h-14 mx-auto bg-[#e6ece7] rounded-full flex items-center justify-center">
