@@ -36,7 +36,7 @@ function ProductsRegister() {
               </label>
               <input
                 id="price"
-                type="text"
+                type="number"
                 placeholder="R$ 0.00"
                 className="w-full px-4 py-2 border border-[#29543A] rounded"
                 name="price"
