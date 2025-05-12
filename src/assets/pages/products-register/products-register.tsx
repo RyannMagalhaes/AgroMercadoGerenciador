@@ -17,6 +17,7 @@ function ProductsRegister() {
 
     if (product.name.length > 2 && product.price > 0) {
       productsService.postProduct(product);
+      clearForm();
     } else {
       alert("Preencha os campos corretamente!");
     }

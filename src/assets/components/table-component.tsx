@@ -5,6 +5,7 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
+import { TfiTrash } from "react-icons/tfi";
 import { type Product } from "../types/products";
 import productsService from "../../services/productsService";
 import { useEffect, useState } from "react";
@@ -15,9 +16,24 @@ export default function BasicTable() {
   useEffect(() => {
     productsService.getProducts().then((response: Product[]) => {
       setProducts(response);
-      console.log(products);
     });
   }, []);
+
+  function deleteProduct(id: number) {
+    const confirmacao = window.confirm(
+      "Tem certeza que deseja deletar este produto?"
+    );
+
+    if (confirmacao) {
+      productsService.deleteProduct(id).then(() => {
+        alert("Produto deletado com sucesso");
+        setProducts((prev) => prev.filter((product) => product.id !== id));
+      });
+      console.log("deletar produto");
+    } else {
+      return;
+    }
+  }
 
   return (
     <TableContainer component={Paper} className="p-8">
@@ -30,7 +46,9 @@ export default function BasicTable() {
             <TableCell className="!text-[#29543A] !font-bold">
               Preço em R$
             </TableCell>
-            <TableCell className="!text-[#29543A] !font-bold">Ações</TableCell>
+            <TableCell className="!text-[#29543A] !font-bold" align="right">
+              Excluir Produto
+            </TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -38,7 +56,14 @@ export default function BasicTable() {
             <TableRow key={row.id}>
               <TableCell>{row.name}</TableCell>
               <TableCell>{row.price} R$</TableCell>
-              <TableCell></TableCell>
+              <TableCell align="right">
+                <div className="flex justify-end items-center h-full">
+                  <TfiTrash
+                    className="w-6 h-6 text-red-400 mr-12"
+                    onClick={() => deleteProduct(row.id)}
+                  />
+                </div>
+              </TableCell>
             </TableRow>
           ))}
         </TableBody>
