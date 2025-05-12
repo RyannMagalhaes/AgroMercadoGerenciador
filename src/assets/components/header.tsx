@@ -34,7 +34,10 @@ function Header() {
 
           {/* Links Desktop */}
           <nav className="hidden md:flex items-center gap-6">
-            <Link to="/home" className="text-[#29543A] font-medium hover:underline">
+            <Link
+              to="/home"
+              className="text-[#29543A] font-medium hover:underline"
+            >
               Home
             </Link>
             <Link
@@ -47,7 +50,13 @@ function Header() {
               to="/products/register"
               className="text-[#29543A] font-medium hover:underline"
             >
-              Cadastrar
+              Cadastrar Produtos
+            </Link>
+            <Link
+              to="/"
+              className="bg-[#29543A] text-white px-4 py-2 rounded-md font-semibold ml-2 hover:bg-[#1e3d2a] transition"
+            >
+              Login
             </Link>
           </nav>
         </div>
@@ -73,6 +82,13 @@ function Header() {
             onClick={() => setMenuOpen(false)}
             className="w-full border-b border-[#0f2e22]/50 py-4 text-[#0f2e22]/100/90 text-lg font-medium transition"
           >
+            Login
+          </Link>
+          <Link
+            to="/"
+            onClick={() => setMenuOpen(false)}
+            className="w-full border-b border-[#0f2e22]/50 py-4 text-[#0f2e22]/100/90 text-lg font-medium transition"
+          >
             Home
           </Link>
           <Link
@@ -87,7 +103,7 @@ function Header() {
             onClick={() => setMenuOpen(false)}
             className="w-full border-b border-[#0f2e22]/50 py-4 text-[#0f2e22]/100/90 text-lg font-medium transition"
           >
-            Cadastrar
+            Cadastrar Produtos
           </Link>
         </nav>
       </div>
