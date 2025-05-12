@@ -16,14 +16,26 @@ function ProductsRegister() {
     product.price = Number(inputPrice.current?.value) || 0;
 
     if (product.name.length > 2 && product.price > 0) {
-      productsService.postProduct(product);
+      productsService
+        .postProduct(product)
+        .then((response) => {
+          if (response) {
+            alert("Produto cadastrado com sucesso!");
+          } else {
+            alert("Erro ao cadastrar produto.");
+          }
+        })
+        .catch(() => {
+          alert("Erro ao cadastrar produto.");
+        });
+        
       clearForm();
     } else {
       alert("Preencha os campos corretamente!");
     }
   }
 
-  function clearForm(){
+  function clearForm() {
     if (inputName.current) {
       inputName.current.value = "";
     }

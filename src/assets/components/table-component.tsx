@@ -16,7 +16,11 @@ export default function BasicTable() {
   useEffect(() => {
     productsService.getProducts().then((response: Product[]) => {
       setProducts(response);
-    });
+    }).catch(() => {
+      alert("Erro ao carregar produtos, verifique se está logado.");
+    })
+
+    
   }, []);
 
   function deleteProduct(id: number) {
@@ -28,8 +32,9 @@ export default function BasicTable() {
       productsService.deleteProduct(id).then(() => {
         alert("Produto deletado com sucesso");
         setProducts((prev) => prev.filter((product) => product.id !== id));
-      });
-      console.log("deletar produto");
+      }).catch(() => {
+      alert("Falha ao deletar produto");
+    });
     } else {
       return;
     }

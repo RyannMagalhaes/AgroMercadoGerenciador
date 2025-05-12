@@ -3,7 +3,7 @@ import api from "./api";
 
 const authenticationService = {
     login: async (username: string, password: string): Promise<AxiosResponse> => {
-        const response = await api.post("/login", { username, password });
+        const response = await api.post("/token/", { username, password });
         return response;
     }
 }

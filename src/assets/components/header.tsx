@@ -12,12 +12,12 @@ function Header() {
         <div className="container mx-auto flex h-16 justify-between items-center">
           <Link to="/home">
             <div className="flex items-center gap-2 pl-4">
-              <div className="flex items-center justify-center bg-[#29543A] w-9 h-9 rounded-md">
+              <div className="flex items-center justify-center bg-[#29543A] w-11 h-10 rounded-md">
                 <FaBuildingWheat className="w-8 h-8 m-auto text-[#F9F9F5]" />
               </div>
-              <h1 className="text-2xl font-bold text-[#29543A]">
+              <p className="text-2xl font-bold text-[#29543A]">
                 <span className="text-[#7D5A3C]">Agro</span>Mercado
-              </h1>
+              </p>
             </div>
           </Link>
 
