@@ -1,12 +1,12 @@
-import PresentationSection from '../../components/presentation-section'
-import './styles.css'
+import Login from "../login/login";
+import "./styles.css";
 
 function App() {
   return (
     <>
-      <PresentationSection />
+      <Login/>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

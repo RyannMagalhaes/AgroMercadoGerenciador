@@ -10,7 +10,7 @@ function Header() {
     <>
       <header className="border-b border-[#d5ddd7] bg-white/80 backdrop-blur-sm sticky top-0 z-10">
         <div className="container mx-auto flex h-16 justify-between items-center">
-          <Link to="/">
+          <Link to="/home">
             <div className="flex items-center gap-2 pl-4">
               <div className="flex items-center justify-center bg-[#29543A] w-9 h-9 rounded-md">
                 <FaBuildingWheat className="w-8 h-8 m-auto text-[#F9F9F5]" />
@@ -34,7 +34,7 @@ function Header() {
 
           {/* Links Desktop */}
           <nav className="hidden md:flex items-center gap-6">
-            <Link to="/" className="text-[#29543A] font-medium hover:underline">
+            <Link to="/home" className="text-[#29543A] font-medium hover:underline">
               Home
             </Link>
             <Link
