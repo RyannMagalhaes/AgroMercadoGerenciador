@@ -2,6 +2,7 @@ import { useRef } from "react";
 import { FaBuildingWheat } from "react-icons/fa6";
 import authenticationService from "../../../services/authenticationService";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 function Login() {
   const username = useRef<HTMLInputElement | null>(null);
@@ -16,16 +17,28 @@ function Login() {
       password: password.current?.value || "",
     };
 
-    authenticationService.login(credenciais.username, credenciais.password)
+    authenticationService
+      .login(credenciais.username, credenciais.password)
       .then((response) => {
-        console.log("Resposta do servidor:", response);
+        const accessToken = response.data.access;
+        const refreshToken = response.data.refresh;
         if (response.status === 200) {
+          //Armazenar os tokens
+          sessionStorage.setItem("access_token", accessToken);
+          sessionStorage.setItem("refresh_token", refreshToken);
+
+          //Passar o token para o axios
+          axios.defaults.headers.common[
+            "Authorization"
+          ] = `Bearer ${accessToken}`;
+
+          //Redirecionar o usuário para a home
           alert("Login bem-sucedido!");
           navigate("/home");
         } else {
           alert("Credenciais inválidas. Tente novamente.");
         }
-      }) 
+      });
   }
 
   return (
