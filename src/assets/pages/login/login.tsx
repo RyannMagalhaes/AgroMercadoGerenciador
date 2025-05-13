@@ -42,7 +42,7 @@ function Login() {
   }
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-[#fcfbf7]">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-[#f8f6ed]">
       <div className="flex flex-col items-center mb-8">
         <div className="bg-[#17472C] rounded-md w-20 h-18 flex items-center justify-center mb-4">
           <FaBuildingWheat className="w-15 h-15 m-auto text-[#F9F9F5]" />
@@ -54,7 +54,7 @@ function Login() {
           Entre para ter acesso a lista e cadastro de produtos
         </p>
       </div>
-      <div className="bg-white rounded-xl shadow-md px-10 py-8 w-full max-w-md border border-[#f5eddc]">
+      <div className="bg-white rounded-xl shadow-md px-10 py-8 w-full max-w-md border-10 border-[#7D5A3C]">
         <h2 className="text-2xl font-bold text-[#17472C] mb-1">Login</h2>
         <p className="text-[#17472C]/80 mb-6 text-sm font-medium">
           Digite suas credenciais para acessar o sistema
