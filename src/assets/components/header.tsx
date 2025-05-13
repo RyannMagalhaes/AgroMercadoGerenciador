@@ -85,7 +85,7 @@ function Header() {
             Login
           </Link>
           <Link
-            to="/"
+            to="/home"
             onClick={() => setMenuOpen(false)}
             className="w-full border-b border-[#0f2e22]/50 py-4 text-[#0f2e22]/100/90 text-lg font-medium transition"
           >

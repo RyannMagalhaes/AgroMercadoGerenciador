@@ -46,7 +46,7 @@ function ProductsRegister() {
 
   return (
     <>
-      <section className="bg-[#f8f6ed] min-h-screen w-full flex items-center justify-center">
+      <section className="bg-[#f8f6ed] w-full flex items-center justify-center min-h-full min-h-screen">
         <div className="bigger-container flex flex-col max-w-[60vw] mx-auto shadow-xl">
           <form className="bg-white rounded-lg shadow p-8  mx-auto">
             <div className="bg-[#7D5A3C] rounded-t-lg -mx-8 -mt-8 px-8 py-6 mb-6 border-b border-[#29543A] flex-col justify-center">
