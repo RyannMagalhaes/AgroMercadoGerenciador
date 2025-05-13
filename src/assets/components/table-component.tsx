@@ -9,18 +9,20 @@ import { TfiTrash } from "react-icons/tfi";
 import { type Product } from "../types/products";
 import productsService from "../../services/productsService";
 import { useEffect, useState } from "react";
+import IconButton from "@mui/material/IconButton";
 
 export default function BasicTable() {
   const [products, setProducts] = useState<Product[]>([]);
 
   useEffect(() => {
-    productsService.getProducts().then((response: Product[]) => {
-      setProducts(response);
-    }).catch(() => {
-      alert("Erro ao carregar produtos, verifique se está logado.");
-    })
-
-    
+    productsService
+      .getProducts()
+      .then((response: Product[]) => {
+        setProducts(response);
+      })
+      .catch(() => {
+        alert("Erro ao carregar produtos, verifique se está logado.");
+      });
   }, []);
 
   function deleteProduct(id: number) {
@@ -29,12 +31,15 @@ export default function BasicTable() {
     );
 
     if (confirmacao) {
-      productsService.deleteProduct(id).then(() => {
-        alert("Produto deletado com sucesso");
-        setProducts((prev) => prev.filter((product) => product.id !== id));
-      }).catch(() => {
-      alert("Falha ao deletar produto");
-    });
+      productsService
+        .deleteProduct(id)
+        .then(() => {
+          alert("Produto deletado com sucesso");
+          setProducts((prev) => prev.filter((product) => product.id !== id));
+        })
+        .catch(() => {
+          alert("Falha ao deletar produto");
+        });
     } else {
       return;
     }
@@ -63,10 +68,14 @@ export default function BasicTable() {
               <TableCell>{row.price} R$</TableCell>
               <TableCell align="right">
                 <div className="flex justify-end items-center h-full">
-                  <TfiTrash
-                    className="w-6 h-6 text-red-400 mr-12"
-                    onClick={() => deleteProduct(row.id)}
-                  />
+                  <IconButton>
+                    <TfiTrash
+                      className="w-6 h-6 text-red-400 mr-12"
+                      onClick={() => deleteProduct(row.id)}
+                      data-testid={`delete-product-${row.id}`}
+                      aria-label="Excluir"
+                    />
+                  </IconButton>
                 </div>
               </TableCell>
             </TableRow>
