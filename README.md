@@ -1,54 +1,34 @@
-# React + TypeScript + Vite
+# 🌾 AgroMercado - Front-End
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicação React para gerenciamento de produtos agrícolas, construída com objetivo de demonstrar conhecimento prático em frameworks, bibliotecas e boas práticas modernas.
 
-Currently, two official plugins are available:
+## 📦 Tecnologias Utilizadas
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **React 19**
+- **TypeScript** - Compilação para evitar identificação de erros em runtime e criação de modelos de objetos para receber e enviar requisições na API.
+- **Vite** – build rápido, simples e bem estruturado.
+- **TailwindCSS** + **MUI (Material UI)** – estilização responsiva e moderna, componentes validados e dentro do padrão web.
+- **Axios** – requisições HTTP com sintaxe simples e recursos abundantes.
+- **Jest** + **Testing Library** – testes unitários
 
-## Expanding the ESLint configuration
+## 🛠️ Scripts
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+| Comando           | Descrição                          |
+|------------------|------------------------------------|
+| `npm run dev`     | Inicia a aplicação local            |
+| `npm run build`   | Compila o projeto para produção     |
+| `npm run preview` | Visualiza o build em modo local     |
+| `npm run lint`    | Executa verificação com ESLint      |
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## 🚀 Instalação e Execução
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+```bash
+# 1. Clone o repositório
+git clone https://github.com/seu-usuario/agromercado.git
+cd agromercado
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+# 2. Instale as dependências
+npm install
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+# 3. Inicie a aplicação em modo desenvolvimento
+npm run dev
