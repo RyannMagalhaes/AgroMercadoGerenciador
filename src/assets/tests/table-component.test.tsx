@@ -1,7 +1,8 @@
-import { render, screen, } from "@testing-library/react";
+import { render, screen, waitFor } from "@testing-library/react";
+import productsService from "../../services/productsService.ts";
 import "@testing-library/jest-dom";
 import ProductsView from "../pages/products-view/products-view";
-//import userEvent from "@testing-library/user-event";
+import userEvent from "@testing-library/user-event";
 import { MemoryRouter } from "react-router-dom";
 //import { waitForElementToBeRemoved } from "@testing-library/react";
 //import productsService from "../../services/productsService.ts";
@@ -41,6 +42,31 @@ describe("BasicTable", () => {
 
   //---------------------------------------------------------//
 
-  
+  it("Remove produto ao clicar no botão de excluir", async () => {
+    jest.spyOn(window, "confirm").mockImplementation(() => true);
 
+    render(
+      <MemoryRouter>
+        <ProductsView />
+      </MemoryRouter>
+    );
+
+    // Aguarda o produto aparecer
+    const milho = await screen.findByText("Milho");
+    expect(milho).toBeInTheDocument();
+
+    // Clica no botão de excluir do produto "Milho"
+    const deleteButton = screen.getByTestId("delete-product-1");
+    userEvent.click(deleteButton);
+
+    // Aguarda o produto ser removido da tela
+    await waitFor(() => {
+      expect(screen.queryByText("Milho")).not.toBeInTheDocument();
+    });
+
+    expect(productsService.deleteProduct).toHaveBeenCalledWith(1);
+
+    // Restaura o mock do confirm
+    jest.spyOn(window, "confirm").mockImplementation(() => true);
+  });
 });
