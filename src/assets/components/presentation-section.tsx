@@ -4,8 +4,8 @@ function PresentationSection() {
   return (
     <>
       <section className="flex items-center justify-center bg-[#f8f6ed] min-h-screen">
-        <div className="bigger-container flex flex-col lg:flex-row lg:content-center max-w-[80vw] max-h-8/10 mx-auto">
-          {/* Conteúdo da esquerda */}
+        <div className="bigger-container flex flex-col lg:flex-row lg:content-center max-w-[80vw] max-h-8/10 mx-auto gap-15">
+          {/* Bloco esquerda */}
           <div className="items-center gap-12 p-6 flex flex-col justify-center text-center lg:text-left lg:items-start">
             <div className="flex-1">
               <span className="inline-block mb-4 px-4 py-1 text-sm bg-[#e6ece7] rounded-full">
@@ -37,7 +37,7 @@ function PresentationSection() {
             </div>
           </div>
 
-          {/* Conteúdo da direita */}
+          {/* Bloco direita */}
 
           <div className="flex justify-center items-center mt-8 lg:mt-0">
             <div className="bg-white p-6 rounded-lg shadow-md text-center w-[450px] h-80 border-10 border-[#7D5A3C]">
