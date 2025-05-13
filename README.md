@@ -32,3 +32,5 @@ npm install
 
 # 3. Inicie a aplicação em modo desenvolvimento
 npm run dev
+
+# 4. Utilize as seguintes credenciais para fazer login: usuario senha123
